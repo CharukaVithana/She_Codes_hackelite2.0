@@ -1,38 +1,78 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
 
-const Notifications = () => {
-  const [notifications, setNotifications] = useState([]);
-
-  useEffect(() => {
-    axios.get('/api/notifications')
-      .then(res => setNotifications(res.data))
-      .catch(err => console.error(err));
-  }, []);
-
-  const markAsRead = (id: string) => {
-    axios.post(`/api/notifications/${id}/read`)
-      .then(() => {
-        setNotifications(prev => prev.map(n => n.id === id ? { ...n, read: true } : n));
-      });
-  }
-
+export default function NotificationsPage() {
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4">Notifications</h1>
-      <ul>
-        {notifications.map(n => (
-          <li key={n.id} className={`p-3 mb-2 rounded shadow ${n.read ? 'bg-gray-100' : 'bg-white'}`}>
-            <div className="flex justify-between items-center">
-              <span>{n.message}</span>
-              {!n.read && <button className="text-blue-500" onClick={() => markAsRead(n.id)}>Mark as Read</button>}
-            </div>
-            <div className="text-xs text-gray-500">{new Date(n.createdAt).toLocaleString()}</div>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
+    <div className="p-6 space-y-6">
+      {/* Page Header */}
+      <header className="flex justify-between items-center">
+        <div>
+          <h1 className="text-2xl font-bold">Notifications & Follow-ups</h1>
+          <p className="text-sm text-muted-foreground">
+            Stay updated on sponsor activities and manage follow-ups
+          </p>
+        </div>
+        <div className="flex gap-2">
+          <Button variant="outline">Filter</Button>
+          <Button variant="outline">Mark All Read</Button>
+          <Button variant="outline">Settings</Button>
+        </div>
+      </header>
 
-export default Notifications;
+      {/* Stats Overview */}
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div className="p-4 bg-white rounded shadow">
+          <h2 className="text-sm text-gray-500">Unread</h2>
+          <p className="text-xl font-bold">12</p>
+          <p className="text-xs text-muted-foreground">+3 today</p>
+        </div>
+        <div className="p-4 bg-white rounded shadow">
+          <h2 className="text-sm text-gray-500">Action Required</h2>
+          <p className="text-xl font-bold">5</p>
+          <p className="text-xs text-red-500">2 urgent</p>
+        </div>
+        <div className="p-4 bg-white rounded shadow">
+          <h2 className="text-sm text-gray-500">Follow-ups Due</h2>
+          <p className="text-xl font-bold">8</p>
+          <p className="text-xs text-red-500">3 overdue</p>
+        </div>
+        <div className="p-4 bg-white rounded shadow">
+          <h2 className="text-sm text-gray-500">Completed Today</h2>
+          <p className="text-xl font-bold">15</p>
+          <p className="text-xs text-green-500">+7 vs yesterday</p>
+        </div>
+      </div>
+
+      {/* Important Notifications */}
+      <section>
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-lg font-semibold">Important Notifications</h2>
+          <Button variant="outline" size="sm">Mark All Read</Button>
+        </div>
+
+        <div className="space-y-4">
+          {/* Example notification card */}
+          <div className="p-4 bg-white rounded shadow space-y-2">
+            <div className="flex justify-between items-center">
+              <h3 className="font-semibold">TechCorp Inc.</h3>
+              <Badge variant="destructive">High</Badge>
+            </div>
+            <p className="text-sm font-medium">Action Required</p>
+            <p className="text-sm text-muted-foreground">
+              Accepted Platinum sponsorship proposal
+            </p>
+            <p className="text-xs text-muted-foreground">
+              Contact: Sarah Johnson • 2 minutes ago
+            </p>
+            <div className="flex gap-2 mt-2">
+              <Button size="sm" variant="outline">Generate Contract</Button>
+              <Button size="sm" variant="secondary">View Sponsor</Button>
+            </div>
+          </div>
+
+          {/* You can map more notifications like above */}
+        </div>
+      </section>
+    </div>
+  )
+}
