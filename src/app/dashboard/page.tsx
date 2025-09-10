@@ -12,49 +12,6 @@ import Link from "next/link";
 export default function DashboardPage() {
   return (
     <div className="flex min-h-screen bg-gray-100">
-      {/* Sidebar */}
-      <aside className="w-64 bg-white shadow-lg">
-        <div className="p-6 text-center font-bold text-blue-600 text-xl">
-          UniCon
-        </div>
-        <nav className="mt-6 space-y-2">
-          <Link
-            href="/dashboard"
-            className="flex items-center space-x-2 px-6 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"
-          >
-            <BarChart3 className="h-5 w-5" />
-            <span>Dashboard</span>
-          </Link>
-          <Link
-            href="/contacts"
-            className="flex items-center space-x-2 px-6 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"
-          >
-            <Users className="h-5 w-5" />
-            <span>Contacts</span>
-          </Link>
-          <Link
-            href="/proposals"
-            className="flex items-center space-x-2 px-6 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"
-          >
-            <FileText className="h-5 w-5" />
-            <span>Proposals</span>
-          </Link>
-          <Link
-            href="/notifications"
-            className="flex items-center space-x-2 px-6 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"
-          >
-            <MessageSquare className="h-5 w-5" />
-            <span>Notifications</span>
-          </Link>
-          <Link
-            href="/settings"
-            className="flex items-center space-x-2 px-6 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"
-          >
-            <Settings className="h-5 w-5" />
-            <span>Settings</span>
-          </Link>
-        </nav>
-      </aside>
 
       {/* Main Content */}
       <main className="flex-1 p-8">
