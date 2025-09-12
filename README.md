@@ -86,17 +86,6 @@ UniCon/
 
 ---
 
-## 🔧 Environment Variables
-
-Create a `.env.local` file in the root directory and configure:
-
-```env
-NEXT_PUBLIC_API_URL=http://localhost:5000/api
-NEXTAUTH_SECRET=your_secret_key
-```
-
----
-
 ## 📊 Usage
 
 * **Sponsors:** Manage sponsor profiles, contracts, and status.
