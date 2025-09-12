@@ -58,7 +58,7 @@ export default function CreateProposalPage() {
             name="amount"
             value={form.amount}
             onChange={handleChange}
-            placeholder="$1000"
+            placeholder="Rs.1000"
             className="mt-1 w-full rounded-lg border px-3 py-2 text-sm focus:border-blue-500 focus:ring focus:ring-blue-200"
             required
           />

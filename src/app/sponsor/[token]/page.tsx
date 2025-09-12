@@ -11,7 +11,7 @@ export default function SponsorPortalPage() {
   const proposal = {
     title: "Career Fair 2025 Sponsorship",
     organizer: "University of Moratuwa",
-    amount: "$2000",
+    amount: "Rs.2000",
     benefits: [
       "Logo on event banners",
       "Dedicated booth at venue",

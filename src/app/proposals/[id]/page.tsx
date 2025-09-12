@@ -11,7 +11,7 @@ export default function ProposalDetailsPage() {
     id,
     title: "Career Fair 2025",
     sponsor: "ABC Corp",
-    amount: "$2000",
+    amount: "Rs.2000",
     description:
       "Sponsorship proposal for the upcoming Career Fair 2025. Includes branding opportunities and booth setup.",
     status: "Accepted",

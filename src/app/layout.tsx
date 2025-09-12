@@ -1,26 +1,29 @@
-import "./globals.css";
-import type { Metadata } from "next";
-import Link from "next/link";
-import NavBar from "../components/NavBar";
+import type React from "react"
+import type { Metadata } from "next"
+import { GeistSans } from "geist/font/sans"
+import { GeistMono } from "geist/font/mono"
+import { Analytics } from "@vercel/analytics/next"
+import { Suspense } from "react"
+import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "UniCon - Where the University Meets Corporate",
-  description: "Streamlining university sponsorship acquisition",
-};
+  title: "UniCon - University Sponsor Management Platform",
+  description:
+    "Streamline sponsorship requests and manage financial relationships between universities and corporate sponsors",
+  generator: "v0.app",
+}
 
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode;
-}) {
+}: Readonly<{
+  children: React.ReactNode
+}>) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-gray-50 text-gray-900">
-
-        <NavBar />
-        {/* Main Content */}
-        <main className="mx-auto max-w-7xl px-6 py-8">{children}</main>
+      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
+        <Suspense fallback={null}>{children}</Suspense>
+        <Analytics />
       </body>
     </html>
-  );
+  )
 }
