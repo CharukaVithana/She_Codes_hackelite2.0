@@ -20,7 +20,6 @@ UniCon is a university event and sponsorship management platform. This repositor
 * **Styling:** Tailwind CSS, ShadCN UI
 * **State Management:** React Query / Context API
 * **Charts & Analytics:** Recharts
-* **Backend (separate repo):** Node.js + Express + MongoDB
 
 ---
 
