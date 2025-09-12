@@ -40,8 +40,10 @@ export default function DashboardPage() {
               <Button variant="ghost" size="sm">
                 <Search className="h-4 w-4" />
               </Button>
-              <Button variant="ghost" size="sm">
-                <Bell className="h-4 w-4" />
+              <Button variant="ghost" size="sm" asChild>
+                <Link href="/notifications">
+                  <Bell className="h-4 w-4" />
+                </Link>
               </Button>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -129,7 +131,7 @@ export default function DashboardPage() {
           </Card>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-1 gap-8">
           {/* Recent Proposals */}
           <div className="lg:col-span-2">
             <Card>
@@ -217,48 +219,10 @@ export default function DashboardPage() {
               </CardContent>
             </Card>
           </div>
-
-          {/* Recent Activity */}
           <div>
-            <Card>
-              <CardHeader>
-                <CardTitle>Recent Activity</CardTitle>
-                <CardDescription>Latest updates and notifications</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
-                  <div className="space-y-1">
-                    <p className="text-sm font-medium">TechCorp accepted proposal</p>
-                    <p className="text-xs text-muted-foreground">2 hours ago</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
-                  <div className="space-y-1">
-                    <p className="text-sm font-medium">New proposal sent to DataFlow Inc</p>
-                    <p className="text-xs text-muted-foreground">5 hours ago</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2"></div>
-                  <div className="space-y-1">
-                    <p className="text-sm font-medium">Innovation Ltd declined proposal</p>
-                    <p className="text-xs text-muted-foreground">1 day ago</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
-                  <div className="space-y-1">
-                    <p className="text-sm font-medium">Contract signed with MegaCorp</p>
-                    <p className="text-xs text-muted-foreground">2 days ago</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
+          
             {/* Funds by Project */}
-            <Card className="mt-6">
+            <Card className="mt-6 mb-12">
               <CardHeader>
                 <CardTitle>Funds by Project</CardTitle>
                 <CardDescription>Current funding status for active events</CardDescription>
@@ -296,6 +260,47 @@ export default function DashboardPage() {
                 </div>
               </CardContent>
             </Card>
+
+
+            {/* Recent Activity */}
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Recent Activity</CardTitle>
+                <CardDescription>Latest updates and notifications</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="flex items-start space-x-3">
+                  <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+                  <div className="space-y-1">
+                    <p className="text-sm font-medium">TechCorp accepted proposal</p>
+                    <p className="text-xs text-muted-foreground">2 hours ago</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
+                  <div className="space-y-1">
+                    <p className="text-sm font-medium">New proposal sent to DataFlow Inc</p>
+                    <p className="text-xs text-muted-foreground">5 hours ago</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2"></div>
+                  <div className="space-y-1">
+                    <p className="text-sm font-medium">Innovation Ltd declined proposal</p>
+                    <p className="text-xs text-muted-foreground">1 day ago</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
+                  <div className="space-y-1">
+                    <p className="text-sm font-medium">Contract signed with MegaCorp</p>
+                    <p className="text-xs text-muted-foreground">2 days ago</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
           </div>
         </div>
       </div>
