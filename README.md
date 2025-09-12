@@ -1,36 +1,130 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# UniCon Frontend
 
-## Getting Started
+UniCon is a university event and sponsorship management platform. This repository contains the **frontend** of UniCon, built with **Next.js**, **React**, **TypeScript**, and **Tailwind CSS**.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+* 🔑 Secure login & signup for financial team members
+* 🏢 Sponsor management (view, add, update, delete)
+* 📑 Proposal management with budgets, descriptions, and categories
+* 📤 Multi-channel communication (Email, WhatsApp, etc.)
+* 📊 Dashboard with analytics (sponsors, proposals, revenue)
+* 🔔 Notifications for financial team and sponsors
+* 🎉 Event management (career fairs, food festivals, etc.)
+
+---
+
+## 🛠️ Tech Stack
+
+* **Frontend:** Next.js 14, React, TypeScript
+* **Styling:** Tailwind CSS, ShadCN UI
+* **State Management:** React Query / Context API
+* **Charts & Analytics:** Recharts
+* **Backend (separate repo):** Node.js + Express + MongoDB
+
+---
+
+## 📂 Project Structure
+
+```
+UniCon/
+├── src/
+│   ├── app/
+│   │   ├── globals.css       # Global styles
+│   │   ├── layout.tsx        # Root layout
+│   │   ├── page.tsx          # Landing page (Home)
+│   │   ├── dashboard/        # Dashboard pages
+│   │   ├── sponsors/         # Sponsor management pages
+│   │   ├── proposals/        # Proposal management pages
+│   │   ├── events/           # Event management pages
+│   │   ├── notifications/    # Notifications page
+│   │   └── api/              # API routes (if any)
+│   │
+│   ├── components/           # Reusable UI components
+│   │   ├── ui/               # ShadCN UI components
+│   │   ├── Navbar.tsx
+│   │   ├── Sidebar.tsx
+│   │   ├── Layout.tsx
+│   │   └── forms/            # Forms for sponsors/proposals
+│   │
+│   ├── lib/                  # Utility functions & API clients
+│   ├── hooks/                # Custom React hooks
+│   ├── types/                # TypeScript types & interfaces
+│   └── assets/               # Images, icons, static files
+│
+├── public/                   # Public static assets
+├── .gitignore
+├── package.json
+├── tailwind.config.js
+├── tsconfig.json
+└── README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ⚙️ Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Clone the repository:
 
-## Learn More
+   ```bash
+   git clone https://github.com/CharukaVithana/UniCon.git
+   cd UniCon
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. Install dependencies:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   npm install
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. Run the development server:
 
-## Deploy on Vercel
+   ```bash
+   npm run dev
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🔧 Environment Variables
+
+Create a `.env.local` file in the root directory and configure:
+
+```env
+NEXT_PUBLIC_API_URL=http://localhost:5000/api
+NEXTAUTH_SECRET=your_secret_key
+```
+
+---
+
+## 📊 Usage
+
+* **Sponsors:** Manage sponsor profiles, contracts, and status.
+* **Proposals:** Create and send proposals to companies with attachments.
+* **Events:** Add and track university events with budget & sponsor mapping.
+* **Dashboard:** View KPIs and analytics.
+* **Notifications:** Get updates about proposals, events, and sponsors.
+
+---
+
+## 🤝 Contributing
+
+1. Fork the repo
+2. Create a new branch (`git checkout -b feature-branch`)
+3. Commit changes (`git commit -m 'Add new feature'`)
+4. Push to branch (`git push origin feature-branch`)
+5. Open a Pull Request
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 📧 Contact
+
+Developed by **Charuka Vithana**
+GitHub: [CharukaVithana](https://github.com/CharukaVithana)
