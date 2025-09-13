@@ -150,7 +150,7 @@ export default function NewProposalPage() {
             <CardContent className="space-y-6">
               <div className="space-y-4">
                 <div className="flex items-center space-x-3 p-3 border rounded-lg">
-                  <Checkbox id="techcorp" />
+                  <Checkbox id="techcorp" className="bg-blue-200" />
                   <div className="flex items-center space-x-3 flex-1">
                     <Avatar className="h-8 w-8">
                       <AvatarFallback>TC</AvatarFallback>
@@ -163,7 +163,7 @@ export default function NewProposalPage() {
                   <Badge variant="secondary">Technology</Badge>
                 </div>
                 <div className="flex items-center space-x-3 p-3 border rounded-lg">
-                  <Checkbox id="globalsolutions" />
+                  <Checkbox id="globalsolutions" className="bg-blue-200"/>
                   <div className="flex items-center space-x-3 flex-1">
                     <Avatar className="h-8 w-8">
                       <AvatarFallback>GS</AvatarFallback>
@@ -176,7 +176,7 @@ export default function NewProposalPage() {
                   <Badge variant="secondary">Consulting</Badge>
                 </div>
                 <div className="flex items-center space-x-3 p-3 border rounded-lg">
-                  <Checkbox id="dataflow" />
+                  <Checkbox id="dataflow" className="bg-blue-200"/>
                   <div className="flex items-center space-x-3 flex-1">
                     <Avatar className="h-8 w-8">
                       <AvatarFallback>DF</AvatarFallback>
@@ -215,10 +215,7 @@ export default function NewProposalPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="platinum-amount">Amount</Label>
-                    <div className="relative">
-                      <DollarSign className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                      <Input id="platinum-amount" placeholder="50,000" className="pl-10" />
-                    </div>
+                    <Input id="platinum-amount" placeholder="Rs. 50,000" />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="platinum-spots">Available Spots</Label>
@@ -244,10 +241,7 @@ export default function NewProposalPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="gold-amount">Amount</Label>
-                    <div className="relative">
-                      <DollarSign className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                      <Input id="gold-amount" placeholder="25,000" className="pl-10" />
-                    </div>
+                      <Input id="gold-amount" placeholder="Rs.25,000" />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="gold-spots">Available Spots</Label>
@@ -273,10 +267,7 @@ export default function NewProposalPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="silver-amount">Amount</Label>
-                    <div className="relative">
-                      <DollarSign className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                      <Input id="silver-amount" placeholder="15,000" className="pl-10" />
-                    </div>
+                      <Input id="silver-amount" placeholder="Rs.15,000"/>
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="silver-spots">Available Spots</Label>
