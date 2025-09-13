@@ -1,10 +1,24 @@
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { ArrowRight, Users, TrendingUp, Bell, CheckCircle, Mail, Phone } from "lucide-react"
-import Link from "next/link"
+"use client";
+
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { ArrowRight, Users, TrendingUp, Bell, CheckCircle, Mail, Phone } from "lucide-react";
+import Link from "next/link";
 
 export default function LandingPage() {
+  const [activeNav, setActiveNav] = useState<string>("");
+
+  // Helper to handle nav click and scroll
+  const handleNavClick = (section: string) => {
+    setActiveNav(section);
+    const el = document.getElementById(section);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
@@ -12,19 +26,41 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg">U</span>
-              </div>
-              <span className="text-xl font-bold text-foreground">UniCon</span>
+              <button
+                className="flex items-center space-x-2 focus:outline-none cursor-pointer"
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                  setActiveNav("");
+                }}
+                aria-label="Scroll to top"
+                type="button"
+              >
+                <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                  <span className="text-primary-foreground font-bold text-lg">U</span>
+                </div>
+                <span className="text-xl font-bold text-foreground">UniCon</span>
+              </button>
             </div>
             <div className="hidden md:flex items-center space-x-8">
-              <Link href="#features" className="text-muted-foreground hover:text-foreground transition-colors">
+              <button
+                className={`text-muted-foreground transition-colors cursor-pointer pb-1 border-b-2
+                  ${activeNav === "features" ? "border-primary text-primary font-semibold" : "border-transparent"}
+                  hover:border-primary hover:text-primary`}
+                onClick={() => handleNavClick("features")}
+                type="button"
+              >
                 Features
-              </Link>
-              <Link href="#how-it-works" className="text-muted-foreground hover:text-foreground transition-colors">
+              </button>
+              <button
+                className={`text-muted-foreground transition-colors cursor-pointer pb-1 border-b-2
+                  ${activeNav === "how-it-works" ? "border-primary text-primary font-semibold" : "border-transparent"}
+                  hover:border-primary hover:text-primary`}
+                onClick={() => handleNavClick("how-it-works")}
+                type="button"
+              >
                 How It Works
-              </Link>
-              <Button asChild>
+              </button>
+              <Button asChild className="cursor-pointer">
                 <Link href="/login">Sign In</Link>
               </Button>
             </div>
@@ -38,7 +74,6 @@ export default function LandingPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="space-y-4">
-
                 <h1 className="text-4xl lg:text-6xl font-bold text-balance leading-tight">
                   Simplify Sponsor Management with <span className="text-primary">UniCon</span>
                 </h1>
@@ -48,16 +83,15 @@ export default function LandingPage() {
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" asChild className="text-lg px-8">
-                  <Link href="/dashboard">
+                <Button size="lg" asChild className="text-lg px-8 cursor-pointer">
+                  <Link href="/login">
                     Get Started <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
-                <Button variant="outline" size="lg" className="text-lg px-8 bg-transparent">
+                <Button variant="outline" size="lg" className="text-lg px-8 bg-transparent cursor-pointer">
                   Watch Demo
                 </Button>
               </div>
-
             </div>
             <div className="relative">
               <div className="bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl p-8 backdrop-blur-sm">
@@ -81,7 +115,6 @@ export default function LandingPage() {
               Everything you need to manage sponsorships efficiently
             </p>
           </div>
-
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <Card className="text-center border-0 shadow-sm hover:shadow-md transition-shadow">
               <CardHeader>
@@ -97,7 +130,6 @@ export default function LandingPage() {
                 </CardDescription>
               </CardContent>
             </Card>
-
             <Card className="text-center border-0 shadow-sm hover:shadow-md transition-shadow">
               <CardHeader>
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
@@ -112,7 +144,6 @@ export default function LandingPage() {
                 </CardDescription>
               </CardContent>
             </Card>
-
             <Card className="text-center border-0 shadow-sm hover:shadow-md transition-shadow">
               <CardHeader>
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
@@ -126,7 +157,6 @@ export default function LandingPage() {
                 </CardDescription>
               </CardContent>
             </Card>
-
             <Card className="text-center border-0 shadow-sm hover:shadow-md transition-shadow">
               <CardHeader>
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
@@ -154,7 +184,6 @@ export default function LandingPage() {
               Simple steps to streamline your sponsorship process
             </p>
           </div>
-
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center space-y-4">
               <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto text-primary-foreground font-bold text-xl">
@@ -165,7 +194,6 @@ export default function LandingPage() {
                 Import your company contacts via CSV or add them manually to build your sponsor database.
               </p>
             </div>
-
             <div className="text-center space-y-4">
               <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto text-primary-foreground font-bold text-xl">
                 2
@@ -175,7 +203,6 @@ export default function LandingPage() {
                 Create personalized sponsorship packages and send them automatically via email or WhatsApp.
               </p>
             </div>
-
             <div className="text-center space-y-4">
               <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto text-primary-foreground font-bold text-xl">
                 3
@@ -188,7 +215,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-  
 
       {/* CTA Section */}
       <section className="py-20 bg-primary text-primary-foreground">
@@ -197,7 +223,7 @@ export default function LandingPage() {
           <p className="text-xl opacity-90 text-pretty max-w-2xl mx-auto">
             Use UniCon to streamline and manage your university project sponsorships efficiently.
           </p>
-          <Button size="lg" variant="secondary" asChild className="text-lg px-8">
+          <Button size="lg" variant="secondary" asChild className="text-lg px-8 cursor-pointer">
             <Link href="/login">
               Start Free Trial <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
@@ -220,7 +246,6 @@ export default function LandingPage() {
                 Streamlining sponsor management for university.
               </p>
             </div>
-
             <div className="space-y-4">
               <h4 className="font-semibold">Quick Links</h4>
               <div className="space-y-2 text-sm">
@@ -238,7 +263,6 @@ export default function LandingPage() {
                 </Link>
               </div>
             </div>
-
             <div className="space-y-4">
               <h4 className="font-semibold">Support</h4>
               <div className="space-y-2 text-sm">
@@ -256,7 +280,6 @@ export default function LandingPage() {
                 </Link>
               </div>
             </div>
-
             <div className="space-y-4">
               <h4 className="font-semibold">Contact</h4>
               <div className="space-y-2 text-sm text-muted-foreground">
@@ -271,12 +294,11 @@ export default function LandingPage() {
               </div>
             </div>
           </div>
-
           <div className="border-t mt-12 pt-8 text-center text-sm text-muted-foreground">
             <p>&copy; 2024 UniCon. All rights reserved.</p>
           </div>
         </div>
       </footer>
     </div>
-  )
+  );
 }
